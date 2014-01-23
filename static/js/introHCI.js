@@ -33,12 +33,12 @@ function projectClick(e){
     var description = $(containingProject).find(".project-description");
     if (description.length == 0) {
        $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>");
+       jumbotronHeader.text(projectTitle);
     } else {
        description.toggleClass("hide");
        if($(".jumbotron h1").text() == projectTitle){
        		jumbotronHeader.text("Mark Kwon");
        }else{
-       	console.log("entered.");
        		jumbotronHeader.text(projectTitle);
        }
 	}
