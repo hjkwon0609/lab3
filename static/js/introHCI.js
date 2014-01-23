@@ -22,7 +22,6 @@ function initializePage() {
 }
 
 function projectClick(e){
-	console.log("Project cicked");
 	// prevent the page from reloading
 	e.preventDefault();
 
@@ -30,13 +29,18 @@ function projectClick(e){
 	//In an event listener, $(this) is the element that fired the event
 	var projectTitle = $(this).find("p").text();
 	var jumbotronHeader = $(".jumbotron h1");
-	jumbotronHeader.text(projectTitle);
 	var containingProject = $(this).closest(".project");
     var description = $(containingProject).find(".project-description");
     if (description.length == 0) {
        $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>");
     } else {
        description.toggleClass("hide");
+       if($(".jumbotron h1").text() == projectTitle){
+       		jumbotronHeader.text("Mark Kwon");
+       }else{
+       	console.log("entered.");
+       		jumbotronHeader.text(projectTitle);
+       }
 	}
 }
 
